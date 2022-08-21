@@ -32,6 +32,7 @@ const inputs = [
 
 const GarageForm = () => {
   const [newCharacter, setNewCharacter] = useState({
+    id: new Date().getTime(),
     name: "",
     gender: "",
     location: "",
@@ -46,8 +47,10 @@ const GarageForm = () => {
 
   const submitCharacter = (e) => {
     e.preventDefault();
-    console.log(newCharacter);
+    setCreatedCharacters([...createdCharacters, newCharacter]);
   };
+
+  console.log(createdCharacters);
 
   return (
     <div className="garage-form">
