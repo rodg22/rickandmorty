@@ -22,7 +22,7 @@ const Comparacion = () => {
       {comparing.length ? (
         <>
           <h2 className="h2-comparacion">Comparación entre personajes</h2>
-          <div className="resultados-busqueda">
+          <div className="resultados-comparacion">
             {comparing.map(
               ({
                 id,

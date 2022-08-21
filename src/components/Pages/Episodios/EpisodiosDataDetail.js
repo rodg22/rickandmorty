@@ -21,8 +21,10 @@ const EpisodiosDataDetail = () => {
   const URL = `https://rickandmortyapi.com/api/episode/${episodeId}`;
 
   useEffect(() => {
-    axios.get(URL).then((res) => setEpisodeData(res.data));
-  }, [URL]);
+    if (episodeId !== undefined) {
+      axios.get(URL).then((res) => setEpisodeData(res.data));
+    }
+  }, [episodeId, URL]);
 
   //OBTAINING A CLEAN ARRAY WITH CHARACTERS ID NUMBERS
   let charactersId = charactersHTTP?.map((character) =>
@@ -32,7 +34,9 @@ const EpisodiosDataDetail = () => {
   const charactersURL = `https://rickandmortyapi.com/api/character/${charactersId}`;
 
   useEffect(() => {
-    axios.get(charactersURL).then((res) => setCharactersAppearance(res.data));
+    if (charactersURL.substring(42) !== "undefined") {
+      axios.get(charactersURL).then((res) => setCharactersAppearance(res.data));
+    }
   }, [charactersURL]);
 
   return (

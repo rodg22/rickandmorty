@@ -8,11 +8,6 @@ export const useComparing = () => useContext(ComparingContext);
 export const ComparingProvider = ({ children }) => {
   const [comparing, setComparing] = useState([]);
 
-  //   const episodeCompare = (episode) => {
-  //     console.log(episode);
-
-  //   }
-
   const isInComparing = (character) => {
     return comparing.some(
       (comparingCharacter) => comparingCharacter.id === character.id
