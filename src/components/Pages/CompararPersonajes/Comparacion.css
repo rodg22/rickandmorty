@@ -5,8 +5,24 @@
   justify-content: center;
 }
 
+.h2-comparacion {
+  margin-top: -5px;
+}
+
 .comparing-card {
   margin: 0 15px;
+}
+
+.char-number {
+  position: absolute;
+  margin-left: 5px;
+  margin-top: 5px;
+  padding: 8px;
+  border-radius: 10px;
+  font-family: "get_schwifty";
+  font-size: 1.5rem;
+  left: 0px;
+  color: var(--celesteLogo);
 }
 
 .status {
@@ -23,4 +39,9 @@
 .div-eliminar-comparacion {
   margin-top: 30px;
   text-align: center;
+}
+
+.negrita {
+  font-weight: bold;
+  text-decoration: underline;
 }

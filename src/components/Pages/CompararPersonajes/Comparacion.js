@@ -1,5 +1,6 @@
 import React from "react";
 import { useComparing } from "../../../context/ComparingContext";
+import { shareEpisodes } from "../../../helpers/shareEpisodes";
 import "./Comparacion.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
@@ -12,9 +13,6 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 const Comparacion = () => {
   const { comparing, clear, removeCharacter } = useComparing();
 
-  //3 arrays, con los episodios de cada uno
-  //   comparing.map(({ episode }) => console.log(episode));
-
   return (
     <>
       <div className="link-volver-info">
@@ -23,7 +21,7 @@ const Comparacion = () => {
 
       {comparing.length ? (
         <>
-          <h2>Comparación entre personajes</h2>
+          <h2 className="h2-comparacion">Comparación entre personajes</h2>
           <div className="resultados-busqueda">
             {comparing.map(
               ({
@@ -40,9 +38,12 @@ const Comparacion = () => {
                   <Card
                     className="comparing-card mt-4"
                     key={id}
-                    style={{ width: "18rem" }}
+                    style={{ width: "16rem" }}
                   >
                     <Card.Img variant="top" src={image} alt={name} />
+                    <Badge bg="secondary" className="char-number">
+                      {id}
+                    </Badge>
                     {(() => {
                       if (status === "Dead") {
                         return (
@@ -71,7 +72,37 @@ const Comparacion = () => {
                       <ListGroup.Item>{gender}</ListGroup.Item>
                       <ListGroup.Item>{location.name}</ListGroup.Item>
                       <ListGroup.Item>{species}</ListGroup.Item>
-                      <ListGroup.Item>*episodios compartidos*</ListGroup.Item>
+                      <ListGroup.Item>
+                        Estuvo en {episode.length} episodio
+                        {episode.length > 1 && "s"}
+                      </ListGroup.Item>
+                      {comparing.length >= 2 && comparing[0].id !== id && (
+                        <ListGroup.Item>
+                          Compartió con {comparing[0].name}{" "}
+                          <span className="negrita">
+                            {shareEpisodes(comparing[0].episode, episode)}
+                          </span>{" "}
+                          episodios
+                        </ListGroup.Item>
+                      )}
+                      {comparing.length >= 2 && comparing[1].id !== id && (
+                        <ListGroup.Item>
+                          Compartió con {comparing[1].name}{" "}
+                          <span className="negrita">
+                            {shareEpisodes(comparing[1].episode, episode)}
+                          </span>{" "}
+                          episodios
+                        </ListGroup.Item>
+                      )}
+                      {comparing.length >= 3 && comparing[2].id !== id && (
+                        <ListGroup.Item>
+                          Compartió con {comparing[2].name}{" "}
+                          <span className="negrita">
+                            {shareEpisodes(comparing[2].episode, episode)}
+                          </span>{" "}
+                          episodios
+                        </ListGroup.Item>
+                      )}
                     </ListGroup>
                     <Card.Body>
                       <Button

@@ -6,7 +6,7 @@ import { faPeopleArrows } from "@fortawesome/free-solid-svg-icons";
 import swal from "sweetalert";
 
 const PersonajesData = ({ characters }) => {
-  const { comparing, addCharacter } = useComparing();
+  const { addCharacter } = useComparing();
 
   const onAdd = (character) => {
     swal({
