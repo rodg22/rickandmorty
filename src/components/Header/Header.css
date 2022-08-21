@@ -1,0 +1,24 @@
+header {
+  display: inline-block;
+  width: 100%;
+}
+
+.logo {
+  font-family: "get_schwifty";
+  font-size: 2rem;
+  color: var(--celesteLogo);
+  text-shadow: 0 0 0.2rem var(--verdeSombra);
+  text-decoration: none;
+}
+
+.links-secciones {
+  font-size: 1.2rem;
+  color: var(--celesteLogo);
+  text-shadow: 0 0 0.1rem var(--verdeSombra);
+  text-decoration: none;
+}
+
+.logo:hover,
+.links-secciones:hover {
+  color: var(--celesteHover);
+}

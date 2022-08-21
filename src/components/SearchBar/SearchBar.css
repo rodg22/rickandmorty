@@ -1,0 +1,26 @@
+.searchbar-container {
+  text-align: center;
+  margin-top: 7vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+input {
+  min-width: 300px;
+  height: 42.8px;
+  font-size: 1.2rem;
+  border-color: none;
+  border-radius: 5px;
+}
+
+.search-button {
+  background-color: var(--celesteLogo);
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.search-button:hover {
+  background-color: var(--celesteHover);
+}

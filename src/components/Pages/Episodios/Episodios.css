@@ -1,0 +1,23 @@
+.link-info {
+  color: var(--celesteLogo);
+}
+
+.detalle-titulo-episodio {
+  color: white;
+  text-align: center;
+  font-size: 1.7rem;
+  margin-top: 30px;
+}
+
+.link-volver-info {
+  font-size: 1.2rem;
+  margin: 25px 25px 10px 25px;
+}
+
+.link-volver-info a {
+  color: var(--celesteLogo);
+}
+
+.resultados-busqueda {
+  text-align: center;
+}

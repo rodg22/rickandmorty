@@ -1,0 +1,7 @@
+.audio-play {
+  color: white;
+}
+
+.audio-play:hover {
+  cursor: pointer;
+}

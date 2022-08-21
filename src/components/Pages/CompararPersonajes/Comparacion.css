@@ -1,0 +1,26 @@
+.resultados-busqueda {
+  text-align: center;
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: center;
+}
+
+.comparing-card {
+  margin: 0 15px;
+}
+
+.status {
+  position: absolute;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 1rem;
+  right: 0px;
+  color: white;
+}
+
+.div-eliminar-comparacion {
+  margin-top: 30px;
+  text-align: center;
+}

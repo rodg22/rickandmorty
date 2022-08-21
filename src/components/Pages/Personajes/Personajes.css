@@ -1,0 +1,42 @@
+h2 {
+  text-align: center;
+  margin-top: 5vh;
+  color: white;
+}
+
+.resultados-busqueda p {
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+}
+
+.resultados-busqueda table {
+  width: 60%;
+  margin: 0 auto;
+  color: white;
+}
+
+.table-header {
+  text-align: center;
+}
+
+.table-id {
+  text-align: center;
+  font-family: "get_schwifty";
+  font-size: 1.4rem;
+  color: var(--celesteLogo);
+}
+
+.table-image {
+  text-align: center;
+}
+
+.table-image img {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.add-to-comparacion:hover {
+  cursor: pointer;
+  color: var(--celesteLogo);
+}

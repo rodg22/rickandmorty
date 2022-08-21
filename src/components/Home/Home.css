@@ -1,0 +1,37 @@
+.wallpaper {
+  width: 100%;
+  height: 100vh;
+  background: url("https://images5.alphacoders.com/876/876590.png") bottom
+    center no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+section {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+section div {
+  display: inline-block;
+  text-align: center;
+  margin: auto;
+  width: 60%;
+  transform: translateY(15vh);
+}
+
+h1 {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+p {
+  font-size: 1.5rem;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.span-icon {
+  margin-right: 15px;
+}
