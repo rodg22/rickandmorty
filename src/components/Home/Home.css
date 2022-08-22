@@ -35,3 +35,25 @@ p {
 .span-icon {
   margin-right: 15px;
 }
+
+@media (max-width: 710px) {
+  .wallpaper div {
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    transform: translateY(5vh);
+  }
+
+  .wallpaper h1 {
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.2rem;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+}

@@ -5,10 +5,14 @@ header {
 
 .logo {
   font-family: "get_schwifty";
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: var(--celesteLogo);
   text-shadow: 0 0 0.2rem var(--verdeSombra);
   text-decoration: none;
+}
+
+.navbar-links-container {
+  justify-content: space-evenly;
 }
 
 .links-secciones {
@@ -18,7 +22,22 @@ header {
   text-decoration: none;
 }
 
+.first-link {
+  margin-left: 10px;
+}
+
+.links-spacing {
+  margin-right: 50px;
+  margin-bottom: 5px;
+}
+
 .logo:hover,
 .links-secciones:hover {
   color: var(--celesteHover);
+}
+
+@media (max-width: 991px) {
+  .first-link {
+    margin-left: 0px;
+  }
 }
