@@ -10,14 +10,14 @@ const ViewSetter = ({ cardView, setCardView }) => {
       <div className="div-view-container">
         {cardView ? (
           <FontAwesomeIcon
-            title="cards-view"
+            title="vista en cards"
             className="view-icon"
             icon={faTableCellsLarge}
             onClick={() => setCardView(!cardView)}
           />
         ) : (
           <FontAwesomeIcon
-            title="table-view"
+            title="vista en tabla"
             className="view-icon"
             icon={faTableList}
             onClick={() => setCardView(!cardView)}

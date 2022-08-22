@@ -75,54 +75,68 @@ const PersonajesData = ({ characters, cardView }) => {
     </Table>
   ) : (
     <div className="resultados-comparacion">
-      {characters.map(
-        ({ id, image, name, gender, location, species, status, episode }) => {
-          return (
-            <Card
-              className="comparing-card mt-4"
-              key={id}
-              style={{ width: "16rem" }}
-            >
-              <Card.Img variant="top" src={image} alt={name} />
-              <Badge bg="secondary" className="char-number">
-                {id}
-              </Badge>
-              {(() => {
-                if (status === "Dead") {
-                  return (
-                    <Badge bg="danger" className="status">
-                      {status}
-                    </Badge>
-                  );
-                } else if (status === "Alive") {
-                  return (
-                    <Badge bg="success" className="status">
-                      {status}
-                    </Badge>
-                  );
-                } else {
-                  return (
-                    <Badge bg="secondary" className="status">
-                      {status}
-                    </Badge>
-                  );
-                }
-              })()}
-              <Card.Body>
-                <Card.Title>{name}</Card.Title>
-              </Card.Body>
-              <ListGroup className="list-group-flush">
-                <ListGroup.Item>{gender}</ListGroup.Item>
-                <ListGroup.Item>{location.name}</ListGroup.Item>
-                <ListGroup.Item>{species}</ListGroup.Item>
-                <ListGroup.Item>
-                  {episode !== undefined && randomEpisode(episode)}
-                </ListGroup.Item>
-              </ListGroup>
-            </Card>
-          );
-        }
-      )}
+      {characters.map((character) => {
+        return (
+          <Card
+            className="comparing-card mt-4"
+            key={character.id}
+            style={{ width: "16rem" }}
+          >
+            <Card.Img
+              variant="top"
+              src={character.image}
+              alt={character.name}
+            />
+            <Badge bg="secondary" className="char-number">
+              {character.id}
+            </Badge>
+            {(() => {
+              if (character.status === "Dead") {
+                return (
+                  <Badge bg="danger" className="status">
+                    {character.status}
+                  </Badge>
+                );
+              } else if (character.status === "Alive") {
+                return (
+                  <Badge bg="success" className="status">
+                    {character.status}
+                  </Badge>
+                );
+              } else {
+                return (
+                  <Badge bg="secondary" className="status">
+                    {character.status}
+                  </Badge>
+                );
+              }
+            })()}
+            <Card.Body>
+              <Card.Title>{character.name}</Card.Title>
+            </Card.Body>
+            <ListGroup className="list-group-flush">
+              <ListGroup.Item>{character.gender}</ListGroup.Item>
+              <ListGroup.Item>{character.location.name}</ListGroup.Item>
+              <ListGroup.Item>{character.species}</ListGroup.Item>
+              <ListGroup.Item>
+                {character.episode !== undefined &&
+                  randomEpisode(character.episode)}
+              </ListGroup.Item>
+              <ListGroup.Item className="agregar-list-comparacion">
+                {character.episode !== undefined && (
+                  <span
+                    onClick={() => onAdd(character)}
+                    className="add-to-comparacion"
+                  >
+                    Agregar a comparación +
+                    <FontAwesomeIcon icon={faPeopleArrows} />
+                  </span>
+                )}
+              </ListGroup.Item>
+            </ListGroup>
+          </Card>
+        );
+      })}
     </div>
   );
 };
