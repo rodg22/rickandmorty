@@ -8,6 +8,7 @@ import EpisodiosDataDetail from "./components/Pages/Episodios/EpisodiosDataDetai
 import Garage from "./components/Pages/Garage/Garage";
 import { RickMortyProvider } from "./context/RickMortyContext";
 import Comparacion from "./components/Pages/CompararPersonajes/Comparacion";
+import Error404 from "./components/Pages/Error/Error404";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
               element={<EpisodiosDataDetail />}
             />
             <Route exact path="/garage" element={<Garage />} />
+            <Route path="*" element={<Error404 />} />
           </Routes>
         </BrowserRouter>
       </RickMortyProvider>

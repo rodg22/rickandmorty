@@ -6,6 +6,7 @@ const RickMortyContext = createContext();
 export const useRickMorty = () => useContext(RickMortyContext);
 
 export const RickMortyProvider = ({ children }) => {
+  //--------------------------------------------------------------------
   //----------------------FOR COMPARING USE-----------------------------
   const [comparing, setComparing] = useState(
     JSON.parse(localStorage.getItem("comparing")) || []
