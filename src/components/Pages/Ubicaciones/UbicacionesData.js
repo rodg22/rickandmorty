@@ -10,7 +10,7 @@ const UbicacionesData = ({ locations }) => {
             <td>{name}</td>
             <td>{type}</td>
             <td>{dimension}</td>
-            <td>{residents.length}</td>
+            <td>{residents !== undefined && residents.length}</td>
             <td>{created}</td>
           </tr>
         );

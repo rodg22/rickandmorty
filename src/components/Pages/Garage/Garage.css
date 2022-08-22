@@ -9,3 +9,11 @@
   width: 40%;
   min-width: 310px;
 }
+
+.resultados-garage {
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-bottom: 50px;
+}

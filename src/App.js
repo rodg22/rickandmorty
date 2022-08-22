@@ -6,13 +6,13 @@ import Ubicaciones from "./components/Pages/Ubicaciones/Ubicaciones";
 import Episodios from "./components/Pages/Episodios/Episodios";
 import EpisodiosDataDetail from "./components/Pages/Episodios/EpisodiosDataDetail";
 import Garage from "./components/Pages/Garage/Garage";
-import { ComparingProvider } from "./context/ComparingContext";
+import { RickMortyProvider } from "./context/RickMortyContext";
 import Comparacion from "./components/Pages/CompararPersonajes/Comparacion";
 
 const App = () => {
   return (
     <>
-      <ComparingProvider>
+      <RickMortyProvider>
         <BrowserRouter>
           <Header />
           <Routes>
@@ -29,7 +29,7 @@ const App = () => {
             <Route exact path="/garage" element={<Garage />} />
           </Routes>
         </BrowserRouter>
-      </ComparingProvider>
+      </RickMortyProvider>
     </>
   );
 };

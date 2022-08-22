@@ -4,21 +4,31 @@ import UbicacionesData from "./UbicacionesData";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
 import { fillRange } from "../../../helpers/fillRange";
+import { useRickMorty } from "../../../context/RickMortyContext";
 
 const Ubicaciones = () => {
   const [locations, setLocations] = useState([]);
   const [querySearch, setQuerySearch] = useState("");
+
+  const { createdCharacters } = useRickMorty();
 
   let locationLength = fillRange(1, 126);
 
   const URL = `https://rickandmortyapi.com/api/location/${locationLength}`;
 
   useEffect(() => {
-    axios.get(URL).then((res) => setLocations(res.data));
-  }, [URL]);
+    let createdLocations = createdCharacters.map(({ location }) => location);
+    axios
+      .get(URL)
+      .then((res) => setLocations([...createdLocations, ...res.data]));
+  }, [createdCharacters, URL]);
 
   const filteredLocations = locations.filter((location) =>
-    location.name.toUpperCase().includes(querySearch.toUpperCase())
+    location.name
+      .toUpperCase()
+      .split(" ")
+      .join("")
+      .includes(querySearch.toUpperCase().split(" ").join(""))
   );
 
   return (

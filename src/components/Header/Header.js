@@ -8,10 +8,10 @@ import { faPeopleArrowsLeftRight } from "@fortawesome/free-solid-svg-icons";
 import { faWarehouse } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Audio from "../Audio/Audio";
-import { useComparing } from "../../context/ComparingContext";
+import { useRickMorty } from "../../context/RickMortyContext";
 
 const Header = () => {
-  const { comparing } = useComparing();
+  const { comparing, createdCharacters } = useRickMorty();
   return (
     <header>
       <Navbar bg="dark" variant="dark">
@@ -39,6 +39,9 @@ const Header = () => {
           </Link>
           <Link className="links-secciones" to="/garage">
             Rick's <FontAwesomeIcon icon={faWarehouse} />
+            {createdCharacters.length !== 0 && (
+              <Badge bg="success">{createdCharacters.length}</Badge>
+            )}
           </Link>
           <Audio />
         </Container>

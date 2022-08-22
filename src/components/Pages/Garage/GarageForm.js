@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useRickMorty } from "../../../context/RickMortyContext";
 import "./Garage.css";
+import GarageCharacters from "./GarageCharacters";
 
 const inputs = [
   {
@@ -35,54 +37,87 @@ const GarageForm = () => {
     id: new Date().getTime(),
     name: "",
     gender: "",
-    location: "",
+    location: {
+      name: "",
+      id: "",
+    },
     image: "",
   });
 
-  const [createdCharacters, setCreatedCharacters] = useState([]);
-
   const handleChange = (e) => {
-    setNewCharacter({ ...newCharacter, [e.target.name]: e.target.value });
+    if (e.target.name === "location") {
+      setNewCharacter({
+        ...newCharacter,
+        location: {
+          id: newCharacter.id,
+          name: e.target.value,
+        },
+      });
+    } else {
+      setNewCharacter({
+        ...newCharacter,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
+  const { createdCharacters, addCreatedCharacter } = useRickMorty();
   const submitCharacter = (e) => {
     e.preventDefault();
-    setCreatedCharacters([...createdCharacters, newCharacter]);
+    setNewCharacter({
+      ...newCharacter,
+      id: new Date().getTime(),
+      location: {
+        ...newCharacter.location,
+        id: new Date().getTime(),
+      },
+    });
+    addCreatedCharacter(newCharacter);
   };
 
-  console.log(createdCharacters);
-
   return (
-    <div className="garage-form">
-      <Form onSubmit={submitCharacter}>
-        {inputs.map(({ label, name, placeholder, type }) => (
-          <Form.Group key={name} className="mb-3">
-            <Form.Label>{label}</Form.Label>
-            <Form.Control
-              value={newCharacter[name]}
-              onChange={handleChange}
-              name={name}
-              type={type}
-              placeholder={placeholder}
-            />
-          </Form.Group>
-        ))}
-        <Button
-          disabled={
-            !(
-              newCharacter.name &&
-              newCharacter.gender &&
-              newCharacter.location &&
-              newCharacter.image
-            )
-          }
-          variant="primary"
-          type="submit"
-        >
-          Crear personaje
-        </Button>
-      </Form>
-    </div>
+    <>
+      <div className="garage-form">
+        <Form onSubmit={submitCharacter}>
+          {inputs.map(({ label, name, placeholder, type }) => (
+            <Form.Group key={name} className="mb-3">
+              <Form.Label>{label}</Form.Label>
+              <Form.Control
+                value={
+                  name === "location"
+                    ? newCharacter.location.name
+                    : newCharacter[name]
+                }
+                onChange={handleChange}
+                name={name}
+                type={type}
+                placeholder={placeholder}
+              />
+            </Form.Group>
+          ))}
+          <Button
+            disabled={
+              !(
+                newCharacter.name &&
+                newCharacter.gender &&
+                newCharacter.location &&
+                newCharacter.image
+              )
+            }
+            variant="primary"
+            type="submit"
+          >
+            Crear personaje
+          </Button>
+        </Form>
+      </div>
+      {createdCharacters.length && (
+        <>
+          <h2 className="h2-personajes-creados">PERSONAJES CREADOS</h2>
+          <GarageCharacters />
+        </>
+      )}
+    </>
   );
 };
 

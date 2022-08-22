@@ -1,12 +1,12 @@
 import React from "react";
-import { useComparing } from "../../../context/ComparingContext";
+import { useRickMorty } from "../../../context/RickMortyContext";
 import { randomEpisode } from "../../../helpers/randomEpisode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPeopleArrows } from "@fortawesome/free-solid-svg-icons";
 import swal from "sweetalert";
 
 const PersonajesData = ({ characters }) => {
-  const { addCharacter } = useComparing();
+  const { addCharacter } = useRickMorty();
 
   const onAdd = (character) => {
     swal({
@@ -38,15 +38,20 @@ const PersonajesData = ({ characters }) => {
             <td>{character.name}</td>
             <td>{character.gender}</td>
             <td>{character.location?.name}</td>
-            <td>{randomEpisode(character.episode)}</td>
             <td>
-              <span
-                onClick={() => onAdd(character)}
-                className="add-to-comparacion"
-              >
-                +
-                <FontAwesomeIcon icon={faPeopleArrows} />
-              </span>
+              {character.episode !== undefined &&
+                randomEpisode(character.episode)}
+            </td>
+            <td>
+              {character.episode !== undefined && (
+                <span
+                  onClick={() => onAdd(character)}
+                  className="add-to-comparacion"
+                >
+                  +
+                  <FontAwesomeIcon icon={faPeopleArrows} />
+                </span>
+              )}
             </td>
           </tr>
         );

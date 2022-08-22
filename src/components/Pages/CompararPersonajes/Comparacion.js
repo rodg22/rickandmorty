@@ -1,5 +1,5 @@
 import React from "react";
-import { useComparing } from "../../../context/ComparingContext";
+import { useRickMorty } from "../../../context/RickMortyContext";
 import { shareEpisodes } from "../../../helpers/shareEpisodes";
 import "./Comparacion.css";
 import { Link } from "react-router-dom";
@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const Comparacion = () => {
-  const { comparing, clear, removeCharacter } = useComparing();
+  const { comparing, clear, removeCharacter } = useRickMorty();
 
   return (
     <>

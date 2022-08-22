@@ -18,7 +18,11 @@ const Episodios = () => {
   }, [URL]);
 
   const filteredEpisodes = episodes.filter((episode) =>
-    episode.name.toUpperCase().includes(querySearch.toUpperCase())
+    episode.name
+      .toUpperCase()
+      .split(" ")
+      .join("")
+      .includes(querySearch.toUpperCase().split(" ").join(""))
   );
 
   return (

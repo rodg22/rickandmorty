@@ -5,8 +5,11 @@ import PersonajesData from "./PersonajesData";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
 import { fillRange } from "../../../helpers/fillRange";
+import { useRickMorty } from "../../../context/RickMortyContext";
 
 const Personajes = () => {
+  const { createdCharacters } = useRickMorty();
+
   const [characters, setCharacters] = useState([]);
   const [querySearch, setQuerySearch] = useState("");
 
@@ -15,11 +18,17 @@ const Personajes = () => {
   const URL = `https://rickandmortyapi.com/api/character/${charactersLength}`;
 
   useEffect(() => {
-    axios.get(URL).then((res) => setCharacters(res.data));
-  }, [URL]);
+    axios
+      .get(URL)
+      .then((res) => setCharacters([...createdCharacters, ...res.data]));
+  }, [createdCharacters, URL]);
 
   const filteredCharacters = characters.filter((character) =>
-    character.name.toUpperCase().includes(querySearch.toUpperCase())
+    character.name
+      .toUpperCase()
+      .split(" ")
+      .join("")
+      .includes(querySearch.toUpperCase().split(" ").join(""))
   );
 
   return (
