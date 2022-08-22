@@ -4,6 +4,12 @@ h2 {
   color: white;
 }
 
+.spinner-div {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
 .resultados-busqueda p {
   margin-top: 20px;
   text-align: center;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "../../SearchBar/SearchBar";
 import UbicacionesData from "./UbicacionesData";
+import Spinner from "react-bootstrap/Spinner";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
 import { fillRange } from "../../../helpers/fillRange";
@@ -40,6 +41,11 @@ const Ubicaciones = () => {
       />
       <div className="resultados-busqueda">
         {querySearch !== "" && <p>Buscaste: "{querySearch}"</p>}
+        {filteredLocations.length === 0 && (
+          <div className="spinner-div">
+            <Spinner animation="border" variant="light" />
+          </div>
+        )}
         {filteredLocations.length === 0 ? (
           locations.length && (
             <p>No se encontraron resultados para tu búsqueda.</p>

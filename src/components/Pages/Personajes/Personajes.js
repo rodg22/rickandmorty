@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Personajes.css";
 import SearchBar from "../../SearchBar/SearchBar";
 import PersonajesData from "./PersonajesData";
+import Spinner from "react-bootstrap/Spinner";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
 import { fillRange } from "../../../helpers/fillRange";
@@ -38,6 +39,11 @@ const Personajes = () => {
         setQuerySearch={setQuerySearch}
         placeholder="Buscá personajes"
       />
+      {filteredCharacters.length === 0 && (
+        <div className="spinner-div">
+          <Spinner animation="border" variant="light" />
+        </div>
+      )}
       <div className="resultados-busqueda">
         {querySearch !== "" && <p>Buscaste: "{querySearch}"</p>}
         {filteredCharacters.length === 0 ? (
