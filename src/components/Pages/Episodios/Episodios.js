@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "../../SearchBar/SearchBar";
 import EpisodiosData from "./EpisodiosData";
 import Spinner from "react-bootstrap/Spinner";
-import Table from "react-bootstrap/Table";
 import axios from "axios";
 import { fillRange } from "../../../helpers/fillRange";
+import ViewSetter from "../../ViewSetter/ViewSetter";
 
 const Episodios = () => {
   const [episodes, setEpisodes] = useState([]);
@@ -26,6 +26,8 @@ const Episodios = () => {
       .includes(querySearch.toUpperCase().split(" ").join(""))
   );
 
+  const [cardView, setCardView] = useState(false);
+
   return (
     <>
       <h2>EPISODIOS</h2>
@@ -45,18 +47,10 @@ const Episodios = () => {
             <p>No se encontraron resultados para tu búsqueda.</p>
           )
         ) : (
-          <Table className="mt-5" bordered>
-            <thead className="table-header">
-              <tr>
-                <th>N°</th>
-                <th>Nombre</th>
-                <th>Fecha de emisión</th>
-                <th>Código de episodio</th>
-                <th>Información</th>
-              </tr>
-            </thead>
-            <EpisodiosData episodes={filteredEpisodes} />
-          </Table>
+          <>
+            <ViewSetter cardView={cardView} setCardView={setCardView} />
+            <EpisodiosData cardView={cardView} episodes={filteredEpisodes} />
+          </>
         )}
       </div>
     </>

@@ -14,7 +14,7 @@ import { useRickMorty } from "../../context/RickMortyContext";
 const Header = () => {
   const { comparing, createdCharacters } = useRickMorty();
   return (
-    <header>
+    <header className="header-fixed">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container className="navbar-container">
           <Navbar.Brand>

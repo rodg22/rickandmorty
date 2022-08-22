@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "../../SearchBar/SearchBar";
 import UbicacionesData from "./UbicacionesData";
 import Spinner from "react-bootstrap/Spinner";
-import Table from "react-bootstrap/Table";
 import axios from "axios";
 import { fillRange } from "../../../helpers/fillRange";
 import { useRickMorty } from "../../../context/RickMortyContext";
+import ViewSetter from "../../ViewSetter/ViewSetter";
 
 const Ubicaciones = () => {
   const [locations, setLocations] = useState([]);
@@ -32,6 +32,7 @@ const Ubicaciones = () => {
       .includes(querySearch.toUpperCase().split(" ").join(""))
   );
 
+  const [cardView, setCardView] = useState(false);
   return (
     <>
       <h2>UBICACIONES</h2>
@@ -51,19 +52,13 @@ const Ubicaciones = () => {
             <p>No se encontraron resultados para tu búsqueda.</p>
           )
         ) : (
-          <Table className="mt-5" bordered>
-            <thead className="table-header">
-              <tr>
-                <th>N°</th>
-                <th>Nombre</th>
-                <th>Tipo</th>
-                <th>Dimensión</th>
-                <th>Cant. residentes</th>
-                <th>Fecha de creación</th>
-              </tr>
-            </thead>
-            <UbicacionesData locations={filteredLocations} />
-          </Table>
+          <>
+            <ViewSetter cardView={cardView} setCardView={setCardView} />
+            <UbicacionesData
+              cardView={cardView}
+              locations={filteredLocations}
+            />
+          </>
         )}
       </div>
     </>

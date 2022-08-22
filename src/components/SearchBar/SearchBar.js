@@ -13,7 +13,11 @@ const SearchBar = ({ placeholder, setQuerySearch }) => {
 
   return (
     <form onSubmit={handleSubmit} className="searchbar-container">
-      <input placeholder={placeholder} aria-label="personaje" />
+      <input
+        className="search-input"
+        placeholder={placeholder}
+        aria-label="personaje"
+      />
       <Button type="submit" className="search-button">
         <FontAwesomeIcon icon={faMagnifyingGlass} />
       </Button>

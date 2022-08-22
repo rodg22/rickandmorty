@@ -1,0 +1,15 @@
+.div-view-container {
+  text-align: right;
+  margin-right: 30px;
+  margin-top: 15px;
+}
+
+.view-icon {
+  color: white;
+  font-size: 2rem;
+}
+
+.view-icon:hover {
+  color: var(--celesteLogo);
+  cursor: pointer;
+}

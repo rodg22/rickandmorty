@@ -22,7 +22,7 @@ section div {
 }
 
 h1 {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   text-align: left;
 }
 
@@ -42,7 +42,6 @@ p {
     text-align: center;
     margin: auto;
     width: 90%;
-    transform: translateY(5vh);
   }
 
   .wallpaper h1 {

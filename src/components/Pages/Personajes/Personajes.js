@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./Personajes.css";
 import SearchBar from "../../SearchBar/SearchBar";
+import ViewSetter from "../../ViewSetter/ViewSetter";
 import PersonajesData from "./PersonajesData";
 import Spinner from "react-bootstrap/Spinner";
-import Table from "react-bootstrap/Table";
 import axios from "axios";
 import { fillRange } from "../../../helpers/fillRange";
 import { useRickMorty } from "../../../context/RickMortyContext";
@@ -32,6 +32,8 @@ const Personajes = () => {
       .includes(querySearch.toUpperCase().split(" ").join(""))
   );
 
+  const [cardView, setCardView] = useState(false);
+
   return (
     <>
       <h2>PERSONAJES</h2>
@@ -51,20 +53,13 @@ const Personajes = () => {
             <p>No se encontraron resultados para tu búsqueda.</p>
           )
         ) : (
-          <Table className="mt-5" bordered>
-            <thead className="table-header">
-              <tr>
-                <th>N°</th>
-                <th>Foto</th>
-                <th>Nombre</th>
-                <th>Género</th>
-                <th>Ubicación</th>
-                <th>Episodio random</th>
-                <th>Comparar</th>
-              </tr>
-            </thead>
-            <PersonajesData characters={filteredCharacters} />
-          </Table>
+          <>
+            <ViewSetter cardView={cardView} setCardView={setCardView} />
+            <PersonajesData
+              cardView={cardView}
+              characters={filteredCharacters}
+            />
+          </>
         )}
       </div>
     </>

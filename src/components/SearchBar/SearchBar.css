@@ -24,3 +24,9 @@ input {
 .search-button:hover {
   background-color: var(--celesteHover);
 }
+
+@media (max-width: 370px) {
+  .search-input {
+    min-width: 250px;
+  }
+}

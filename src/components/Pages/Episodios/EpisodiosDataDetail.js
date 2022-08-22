@@ -71,20 +71,7 @@ const EpisodiosDataDetail = () => {
         Personajes que aparecieron: {charactersHTTP?.length}
       </h3>
       <div className="resultados-busqueda">
-        <Table className="mt-5" bordered>
-          <thead className="table-header">
-            <tr>
-              <th>N°</th>
-              <th>Foto</th>
-              <th>Nombre</th>
-              <th>Género</th>
-              <th>Ubicación</th>
-              <th>Episodio random</th>
-              <th>Comparar</th>
-            </tr>
-          </thead>
-          <PersonajesData characters={charactersAppearance} />
-        </Table>
+        <PersonajesData characters={charactersAppearance} />
       </div>
     </>
   );

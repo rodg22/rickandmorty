@@ -3,9 +3,16 @@ header {
   width: 100%;
 }
 
+.header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
 .logo {
   font-family: "get_schwifty";
-  font-size: 1.7rem;
+  font-size: 2rem;
   color: var(--celesteLogo);
   text-shadow: 0 0 0.2rem var(--verdeSombra);
   text-decoration: none;
@@ -36,8 +43,20 @@ header {
   color: var(--celesteHover);
 }
 
+@media (max-width: 1200px) {
+  .logo {
+    font-size: 1.7rem;
+  }
+}
+
 @media (max-width: 991px) {
   .first-link {
     margin-left: 0px;
+  }
+}
+
+@media (max-width: 991px) {
+  .logo {
+    font-size: 1.6rem;
   }
 }

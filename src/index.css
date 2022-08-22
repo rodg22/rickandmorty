@@ -6,6 +6,7 @@
 }
 
 body {
+  position: relative;
   background-color: var(--azulFondo);
   margin: 0;
   padding: 0;
