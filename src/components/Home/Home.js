@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <section className="wallpaper">
         <div>
-          <h1>BIENVENIDO BAUFESTIANO</h1>
+          <h1>BIENVENIDO!</h1>
           <p>
             <span className="span-icon">
               <FontAwesomeIcon icon={faSearch} />
